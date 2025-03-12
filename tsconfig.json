@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Compiles to latest JavaScript version
+    "module": "CommonJS", // Use CommonJS for Node.js compatibility
+    "rootDir": "./src", // Your TypeScript source files
+    "outDir": "./dist", // Compiled JavaScript files
+    "strict": true, // Enable strict mode for better type checking
+    "esModuleInterop": true, // Enables interoperability with CommonJS modules
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "baseUrl": "./", // Required for path mapping
+    "paths": {
+      "@/*": [
+        "src/*"
+      ] // Maps "@" to the "src" folder
+    }
+  },
+  "include": [
+    "src"
+  ] // Include the "src" directory
+}

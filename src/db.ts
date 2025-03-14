@@ -80,7 +80,7 @@ class SupabaseController {
     table: T,
     seperator: string,
     seperatorValue: Array<any>,
-    columns: Array<"*" | keyof TableMapping[T]> = ["*"] as const
+    columns: Array<string | keyof TableMapping[T]> = ["*"] as const
   ): Promise<Partial<TableMapping[T]>[]> => {
     try {
       const response = await this.client

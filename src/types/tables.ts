@@ -27,13 +27,16 @@ export type ExpirableEntityState<T> = EntityState<T> & {
 };
 
 export type InventoryData = {
-  supply_id: number;
+  id: number;
+  supply_id?: number;
+  supplies?: Partial<SuppliesData>;
   quantity: number;
   expiry_date?: string;
-  id: number;
   created_at: string;
-  user_id?: number;
-};
+} & (
+  | { supply_id: number; supplies?: never }
+  | { supply_id?: never; supplies: Partial<SuppliesData> }
+);
 export type SuppliesData = {
   id: number;
   type: string;
@@ -55,5 +58,9 @@ export type CrewData = {
 export type LogsData = {
   id: number;
   created_at: string;
-  crew_member_id: number;
-};
+  crew_member_id?: number;
+  crew?: Partial<CrewData>;
+} & (
+  | { crew_member_id: number; crew?: never }
+  | { crew_member_id?: never; crew: Partial<CrewData> }
+);

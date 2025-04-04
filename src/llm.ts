@@ -91,7 +91,7 @@ const getInventoryInformation = async (question: string): Promise<string> => {
     { itemsPerPage: 100, page: 1, keywords: "" },
     ["id", "name"]
   );
-  const suppliesTable = suppliesResponse.current.data;
+  const suppliesTable = suppliesResponse.active.data;
   const response = await idConverterChain.invoke({
     input: question,
     context: suppliesTable,
